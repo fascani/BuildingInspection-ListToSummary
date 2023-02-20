@@ -62,13 +62,25 @@ if check_password():
     ########################
 
     container = st.container()
-    comments = list()
-    comment_index = 0
-    container.text_input('Write your comment', key='comment-' + str(comment_index))
-    if st.button('Add a comment'):
-        comment_index += 1
-        container.text_input('Write your comment', key='comment-' + str(comment_index))
+    
+    # Initialize a counter 
+    if 'count' not in st.session_state:
+        st.session_state.count = 0
 
+    # Initialize the list of comments
+    if 'count' not in st.session_state:
+        st.session_state.comments = list()
+
+    def increment_counter():
+        st.session_state.count += 1
+
+    container.text_input('Write your comment', 
+    on_click=increment_counter, args = (1,),
+    key='comment-' + str(st.session_state.count))
+    
+    st.text(st.session_state.count)
+
+    # st.form to submit eveything at once, see https://docs.streamlit.io/library/api-reference/control-flow/st.form
     
     # Construct the prompt
     ######################
