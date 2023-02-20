@@ -169,7 +169,7 @@ if check_password():
 
     if generate:
         summary = generate_summary(prompt)
-        st.text(summary)
+        st.markdown(summary)
 
     # Add the generate summary button
     st.button('save to Google sheet')
