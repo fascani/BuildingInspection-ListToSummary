@@ -139,7 +139,7 @@ if check_password():
     prompt = preamble + markdown_comments + end_prompt
 
     # For testing
-    st.text(prompt)
+    #st.text(prompt)
 
     # Run the prompt thru the OpenAI API
     ####################################
@@ -170,12 +170,11 @@ if check_password():
 
         response = openai.Completion.create(
             prompt=prompt,
-            temperature=0.1,
-            max_tokens=300,
+            temperature=0,
+            max_tokens=1580,
             top_p=1,
             frequency_penalty=0,
-            presence_penalty=0,
-            model=COMPLETIONS_MODEL
+            presence_penalty=0
         )
 
         summary = response["choices"][0]["text"].strip(" \n")
