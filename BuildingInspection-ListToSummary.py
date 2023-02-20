@@ -75,7 +75,7 @@ if check_password():
 
     def new_comment():
         st.session_state.count += 1
-        st.session_state.comments.append(st_session_state.new_comment)
+        st.session_state.comments.append(st.session_state.new_comment)
 
     container = st.container()
     #container.text_input('Write your comment', on_change=new_comment, key='comment-' + str(st.session_state.count))
