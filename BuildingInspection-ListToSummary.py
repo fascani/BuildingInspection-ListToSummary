@@ -78,6 +78,13 @@ if check_password():
         st.session_state.comments.append(st.session_state.new_comment)
         st.session_state.new_comment = '' # Reset new commment
 
+    # Clear button
+    clear_comments = st.button('clear all')
+
+    if clear_comments:
+        st.session_state.comments = list()
+        st.session_state.new_comment = ''
+
     container = st.container()
     container.text_input('Write one comment at a time', on_change=new_comment, key='new_comment')
     
@@ -170,6 +177,7 @@ if check_password():
     if generate:
         summary = generate_summary(prompt)
         st.markdown(summary)
+
 
     # Add the generate summary button
     st.button('save to Google sheet')
