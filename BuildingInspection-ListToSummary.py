@@ -56,7 +56,7 @@ if check_password():
 
     st.set_page_config(page_title="Hello! I am James, your building inspector assistant")
     st.title("Hello! I am James, your building inspector assistant")
-    st.text('Type your comments and click to generate a summary')
+    st.text("Type your comments and click 'generate summary'")
     
     # Collect list of things
     ########################
@@ -119,13 +119,57 @@ if check_password():
     condition of the walls and flooring.
 
     Here is the list of inputs:
+    
     '''
     prompt = preamble + markdown_comments
 
-    st.text(prompt)
+    # For testing
+    #st.text(prompt)
+
+    # Run the prompt thru the OpenAI API
+    ####################################
+
+    # Set the OpenAI API key
+    openai.api_key = st.secrets["openai_api_key"]
 
     # Add the generate summary button
-    st.button('generate summary')
+    generate = st.button('generate summary')
 
+    def generate_summary(prompt):
+        '''
+        Use a pre-trained NLP to summarize the bullet points.
 
-    
+        Parameters
+        ----------
+        prompt : str
+            Prompt
+        
+        Returns
+        -------
+        answer : str
+            Answer from the model
+        '''
+
+        # Ask the question with the context with GPT3 text-davinci-003
+        COMPLETIONS_MODEL = "text-davinci-003"
+
+        response = openai.Completion.create(
+            prompt=prompt,
+            temperature=0.1,
+            max_tokens=300,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+            model=COMPLETIONS_MODEL
+        )
+
+        summary = response["choices"][0]["text"].strip(" \n")
+
+        return summary
+
+    if generate:
+        summary = generate_summary(prompt)
+        st.text(summary)
+
+    # Add the generate summary button
+    st.button('save to Google sheet')
