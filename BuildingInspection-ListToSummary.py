@@ -55,7 +55,7 @@ if check_password():
         st.session_state['kept_username'] = st.session_state['username']
 
     st.set_page_config(page_title="Hello! I am James, your building inspector assistant")
-    st.tite("Hello! I am James, your building inspector assistant")
+    st.title("Hello! I am James, your building inspector assistant")
     st.text('Type your list of comments and click to generate a summary')
     
     # Collect list of things
