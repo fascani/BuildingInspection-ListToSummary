@@ -89,9 +89,43 @@ if check_password():
     markdown_comments = "\n".join(["- " + item for item in st.session_state.comments])
     st.text(markdown_comments)
 
-    # st.form to submit eveything at once, see https://docs.streamlit.io/library/api-reference/control-flow/st.form
-    
     # Construct the prompt
     ######################
+
+    preambule = '''
+    Write down a summary from a list of inputs. For example, if the inputs are:
+
+    - Bedroom 1
+    - Walls lining paper and poor
+    - Floor is tiled and good
+    - Ceiling and some walls lining paper and good
+    - Damp stain to ceiling
+    - Windows are PVCu double glazed, we tested one, seem good
+    - One glazed pane was cracked
+    - Floor is carpet and poor
+
+    the summary should be:
+
+    Upon inspection of Bedroom 1, the walls were observed to be lined with paper, and
+    it was determined that they are in poor condition. The floor is tiled and appeared
+    to be in good condition. The ceiling and some of the walls are also lined with paper,
+    which appears to be in good condition. However, a damp stain was noted on the ceiling,
+    which requires further investigation to determine the cause and extent of the issue.
+    The windows are PVCu double-glazed, and one window was tested and appears to be in good condition.
+    However, it should be noted that one glazed pane was found to be cracked, which may require
+    replacement. The floor is covered in carpet, which is in poor condition and may require replacement.
+    Overall, some remedial works may be necessary to address the issues identified in Bedroom 1,
+    including investigating the damp stain, replacing the damaged glazed pane, and improving the
+    condition of the walls and flooring.
+
+    Here is the list of inputs:
+    '''
+    prompt = preamble + '/n/n' + markdown_comments
+
+    st.text(prompt)
+
+    # Add the generate summary button
+    st.button('generate summary')
+
 
     
