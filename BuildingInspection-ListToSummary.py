@@ -60,7 +60,7 @@ if check_password():
     
     # Collect list of things
     ########################
-
+    
     # Initialize a counter 
     if 'count' not in st.session_state:
         st.session_state.count = 0
@@ -72,7 +72,7 @@ if check_password():
     def increment_counter():
         st.session_state.count += 1
 
-    st.session_state.count
+    container = st.container()
     container.text_input('Write your comment', on_click=increment_counter, args = (1,), key='comment-' + str(st.session_state.count))
     
     st.text(st.session_state.count)
