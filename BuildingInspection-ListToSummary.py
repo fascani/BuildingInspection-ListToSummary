@@ -62,7 +62,7 @@ if check_password():
     ########################
 
     container = st.container()
-    comments[]
+    comments = list()
     comments.append(container.text_input('Comment', 'write your comment'))
     if st.button('Add'):
         comments.append(container.text_input('Comment', 'write your comment'))
