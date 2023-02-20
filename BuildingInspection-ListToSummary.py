@@ -120,7 +120,7 @@ if check_password():
 
     Here is the list of inputs:
     '''
-    prompt = preamble + '/n/n' + markdown_comments
+    prompt = preamble + markdown_comments
 
     st.text(prompt)
 
