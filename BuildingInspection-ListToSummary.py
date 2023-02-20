@@ -73,7 +73,7 @@ if check_password():
         st.session_state.count += 1
 
     container = st.container()
-    container.text_input('Write your comment', on_change=increment_counter, args = (1,), key='comment-' + str(st.session_state.count))
+    container.text_input('Write your comment', on_change=increment_counter, key='comment-' + str(st.session_state.count))
     
     st.text(st.session_state.count)
 
