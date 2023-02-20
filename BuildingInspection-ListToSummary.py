@@ -80,16 +80,16 @@ if check_password():
     container = st.container()
     container.text_input('Write your comment', on_change=new_comment, key='new_comment')
     
-    st.text(st.session_state.count)
-    st.text(st.session_state.comments)
+    # For testing
+    #st.text(st.session_state.count)
+    #st.text(st.session_state.comments)
+
+    # Print a nice markdown list
+    markdown_comments = "\n".join(["- " + item for item in st.session_state.comments])
+    st.text(markdown_comments)
 
     # st.form to submit eveything at once, see https://docs.streamlit.io/library/api-reference/control-flow/st.form
     
-    def proc():
-        st.write(st.session_state.text_key)
-
-    st.text_area('enter text', on_change=proc, key='text_key')  
-
     # Construct the prompt
     ######################
 
