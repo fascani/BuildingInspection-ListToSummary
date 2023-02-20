@@ -63,9 +63,10 @@ if check_password():
 
     container = st.container()
     comments = list()
-    comments.append(container.text_input('Comment', 'write your comment'))
+    comment_index = 0
+    comments.append(container.text_input('Comment', 'write your comment', key='comment-0'))
     if st.button('Add a comment'):
-        comments.append(container.text_input('Comment', 'write your comment'))
+        comments.append(container.text_input('Comment', 'write your comment', key='comment-1'))
 
     
     # Construct the prompt
