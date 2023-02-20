@@ -56,7 +56,7 @@ if check_password():
 
     st.set_page_config(page_title="Hello! I am James, your building inspector assistant")
     st.title("Hello! I am James, your building inspector assistant")
-    st.text('Type your list of comments and click to generate a summary')
+    st.text('Type your comments and click to generate a summary')
     
     # Collect list of things
     ########################
@@ -64,7 +64,7 @@ if check_password():
     container = st.container()
     comments = list()
     comments.append(container.text_input('Comment', 'write your comment'))
-    if st.button('Add'):
+    if st.button('Add a comment'):
         comments.append(container.text_input('Comment', 'write your comment'))
 
     
