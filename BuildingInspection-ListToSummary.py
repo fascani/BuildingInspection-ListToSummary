@@ -100,20 +100,21 @@ if check_password():
     ######################
 
     preamble = '''
-    Write down a summary from a list of inputs. For example, if the inputs were:
+    Summarize (and correct for standard English) a list of inputs for a professional
+    building inspector. For example, if the inputs were:
 
-    - Bedroom 1
+    "- Bedroom 1
     - Walls lining paper and poor
     - Floor is tiled and good
     - Ceiling and some walls lining paper and good
     - Damp stain to ceiling
     - Windows are PVCu double glazed, we tested one, seem good
     - One glazed pane was cracked
-    - Floor is carpet and poor
+    - Floor is carpet and poor"
 
     you would generate the following summary:
 
-    Upon inspection of Bedroom 1, the walls were observed to be lined with paper, and
+    "Upon inspection of Bedroom 1, the walls were observed to be lined with paper, and
     it was determined that they are in poor condition. The floor is tiled and appeared
     to be in good condition. The ceiling and some of the walls are also lined with paper,
     which appears to be in good condition. However, a damp stain was noted on the ceiling,
@@ -121,18 +122,20 @@ if check_password():
     The windows are PVCu double-glazed, and one window was tested and appears to be in good condition.
     However, it should be noted that one glazed pane was found to be cracked, which may require
     replacement. The floor is covered in carpet, which is in poor condition and may require replacement.
+    
     Overall, some remedial works may be necessary to address the issues identified in Bedroom 1,
     including investigating the damp stain, replacing the damaged glazed pane, and improving the
-    condition of the walls and flooring.
+    condition of the walls and flooring."
 
     Below is the list of inputs to use to generate the summary:
     
     '''
 
     end_prompt = '''
-    Start the summary:
-    '''
     
+    Start the summary (don't forget the conclusion "Overall,..."):
+    '''
+
     prompt = preamble + markdown_comments + end_prompt
 
     # For testing
