@@ -66,7 +66,7 @@ if check_password():
         st.session_state.count = 0
 
     # Initialize the list of comments
-    if 'count' not in st.session_state:
+    if 'comments' not in st.session_state:
         st.session_state.comments = list()
 
     def new_comment():
