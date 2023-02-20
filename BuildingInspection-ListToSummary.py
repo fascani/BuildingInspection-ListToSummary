@@ -100,7 +100,7 @@ if check_password():
     ######################
 
     preamble = '''
-    Write down a summary from a list of inputs. For example, if the inputs are:
+    Write down a summary from a list of inputs. For example, if the inputs were:
 
     - Bedroom 1
     - Walls lining paper and poor
@@ -111,7 +111,7 @@ if check_password():
     - One glazed pane was cracked
     - Floor is carpet and poor
 
-    the summary should be:
+    you would generate the following summary:
 
     Upon inspection of Bedroom 1, the walls were observed to be lined with paper, and
     it was determined that they are in poor condition. The floor is tiled and appeared
@@ -125,13 +125,15 @@ if check_password():
     including investigating the damp stain, replacing the damaged glazed pane, and improving the
     condition of the walls and flooring.
 
-    Here is the list of inputs:
+    Below is the list of inputs to use to generate the summary:
     
     '''
-    prompt = preamble + markdown_comments
+
+    end_prompt = 'Start the summary:'
+    prompt = preamble + markdown_comments + end_prompt
 
     # For testing
-    #st.text(prompt)
+    st.text(prompt)
 
     # Run the prompt thru the OpenAI API
     ####################################
