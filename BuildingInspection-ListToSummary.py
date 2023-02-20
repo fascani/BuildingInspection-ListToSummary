@@ -69,14 +69,18 @@ if check_password():
     if 'comments' not in st.session_state:
         st.session_state.comments = list()
 
-    def new_comment():
-        st.session_state.count += 1
-        st.session_state.comments.append(st_session_state.new_comment)
+    # Initialize new_comment
+    #if 'new_comment' not in st.session_state:
+    #    st.session_state.new_comment = None
 
     container = st.container()
     #container.text_input('Write your comment', on_change=new_comment, key='comment-' + str(st.session_state.count))
     container.text_input('Write your comment', on_change=new_comment, key='new_comment')
     
+    def new_comment():
+        st.session_state.count += 1
+        st.session_state.comments.append(st_session_state.new_comment)
+
     st.text(st.session_state.count)
     st.text(st.session_state.comments)
 
