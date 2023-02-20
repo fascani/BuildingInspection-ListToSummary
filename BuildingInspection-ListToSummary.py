@@ -8,10 +8,7 @@ Created on 02/19/2023
 import os
 import streamlit as st
 import openai
-from transformers import GPT2TokenizerFast
-from sentence_transformers import SentenceTransformer
 import datetime
-from streamlit_chat import message
 
 # Streamlit app
 ###############
