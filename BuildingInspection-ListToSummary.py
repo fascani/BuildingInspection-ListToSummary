@@ -78,8 +78,8 @@ if check_password():
         st.session_state.comments.append(st.session_state.new_comment)
 
     container = st.container()
-    #container.text_input('Write your comment', on_change=new_comment, key='comment-' + str(st.session_state.count))
-    container.text_input('Write your comment', on_change=new_comment, key='new_comment')
+    container.text_input('Write your comment', on_change=new_comment, key='comment-' + str(st.session_state.count))
+    #container.text_input('Write your comment', on_change=new_comment, key='new_comment')
     
     st.text(st.session_state.count)
     st.text(st.session_state.comments)
