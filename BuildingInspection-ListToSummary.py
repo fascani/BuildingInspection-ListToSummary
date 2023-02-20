@@ -92,7 +92,7 @@ if check_password():
     # Construct the prompt
     ######################
 
-    preambule = '''
+    preamble = '''
     Write down a summary from a list of inputs. For example, if the inputs are:
 
     - Bedroom 1
