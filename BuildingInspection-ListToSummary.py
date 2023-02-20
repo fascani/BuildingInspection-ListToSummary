@@ -69,13 +69,16 @@ if check_password():
     if 'count' not in st.session_state:
         st.session_state.comments = list()
 
-    def increment_counter():
+    def new_comment():
         st.session_state.count += 1
+        st.session_state.comments.append(st_session_state.new_comment)
 
     container = st.container()
-    container.text_input('Write your comment', on_change=increment_counter, key='comment-' + str(st.session_state.count))
+    #container.text_input('Write your comment', on_change=new_comment, key='comment-' + str(st.session_state.count))
+    container.text_input('Write your comment', on_change=new_comment, key='new_comment')
     
     st.text(st.session_state.count)
+    st.text(st.session_state.comments)
 
     # st.form to submit eveything at once, see https://docs.streamlit.io/library/api-reference/control-flow/st.form
     
