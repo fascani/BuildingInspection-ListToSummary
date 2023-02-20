@@ -174,7 +174,8 @@ if check_password():
             max_tokens=1580,
             top_p=1,
             frequency_penalty=0,
-            presence_penalty=0
+            presence_penalty=0,
+            model=COMPLETIONS_MODEL
         )
 
         summary = response["choices"][0]["text"].strip(" \n")
