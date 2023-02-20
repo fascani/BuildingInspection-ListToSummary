@@ -129,7 +129,10 @@ if check_password():
     
     '''
 
-    end_prompt = 'Start the summary:'
+    end_prompt = '''
+    Start the summary:
+    '''
+    
     prompt = preamble + markdown_comments + end_prompt
 
     # For testing
