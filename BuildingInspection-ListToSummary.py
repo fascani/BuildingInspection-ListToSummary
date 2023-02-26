@@ -16,7 +16,10 @@ import datetime
 # from https://docs.streamlit.io/knowledge-base/deploy/authentication-without-sso#option-2-individual-password-for-each-user
 def check_password():
     """Returns `True` if the user had a correct password."""
-
+    
+    st.set_page_config(page_title="Hello! I am James, your building inspector assistant")
+    st.title("Hello! I am James, your building inspector assistant")
+    
     def password_entered():
         """Checks whether a password entered by the user is correct."""
         if (
