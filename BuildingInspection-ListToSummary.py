@@ -57,8 +57,6 @@ if check_password():
     if 'kept_username' not in st.session_state:
         st.session_state['kept_username'] = st.session_state['username']
 
-    #st.set_page_config(page_title="Hello! I am James, your building inspector assistant")
-    st.title("Hello! I am James, your building inspector assistant")
     st.text("Type your comments and click 'generate summary'")
     
     # Collect list of things
